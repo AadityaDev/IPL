@@ -91,16 +91,29 @@
 
 <script>
 import '@fortawesome/fontawesome-free/css/all.css';
-import '@fortawesome/fontawesome-free/js/all.js';
-// import * as csvFile from '../assets/csv/Player.csv';
-import ballsResponse from "../../assets/json/ball_by_ball.json";
+import * as ballsResponse from "../../assets/json/ball_by_ball.json";
 import matchesResponse from "../../assets/json/match.json";
 import playerMatchesResponse from "../../assets/json/player_match.json";
 import playersResponse from "../../assets/json/player.json";
 import seasonsResponse from "../../assets/json/season.json";
 import teamsResponse from "../../assets/json/team.json";
 import teamImg from "../../assets/imgs/teams/rc-bangalore.jpg";
+import { throws } from 'assert';
 
+const kolkataKnightRiders = require("../../assets/imgs/teams/kolkata-knight-riders.jpg");
+const rcBangalore = require("../../assets/imgs/teams/rc-bangalore.jpg");
+const chennaiSuperKings = require("../../assets/imgs/teams/chennai-super-kings.jpg");
+const kingsElevenPunjab = require("../../assets/imgs/teams/kings-eleven-punjab.jpg");
+const rajasthanRoyals = require("../../assets/imgs/teams/rajasthan-royals.jpg");  
+const delhiCapitals = require("../../assets/imgs/teams/delhi-capitals.jpg");
+const mumbaiIndians = require("../../assets/imgs/teams/mumbai-indians.jpg");
+const deccanChargers = require("../../assets/imgs/teams/deccan-chargers.jpg");
+const kochiTuskersKerala = require("../../assets/imgs/teams/kochi-tuskers-kerala.jpg");
+const puneWarriors = require("../../assets/imgs/teams/pune-warriors.jpg");
+const sunriseHyderabad = require("../../assets/imgs/teams/sunrise-hyderabad.jpg");
+const risingPuneSuperstar = require("../../assets/imgs/teams/rising-pune-superstar.jpg");
+const gujaratLions = require("../../assets/imgs/teams/gujarat-lions.jpg")
+            
 export default {
   name: "home",
   components: {},
@@ -123,9 +136,6 @@ export default {
       for (let index = 0; index < matchesResponse.length; index++) {
         res[index][img] = "../../assets/imgs/teams/rajasthan-royals.jpg";
         this.matches.push(matchesResponse[index]);
-        this.matches[index].img =
-          "../../assets/imgs/teams/rajasthan-royals.jpg";
-        // console.log(JSON.stringify(this.matches[index]));
       }
       console.log("res is: " + res.length);
       console.log("res is: " + JSON.stringify(res));
@@ -139,6 +149,7 @@ export default {
       for (let index = 0; index < playersResponse.length; index++) {
         this.players.push(playersResponse[index]);
       }
+      console.log("readPlayersInfo is", JSON.stringify(throws.players));
     },
     readSeasonsInfo() {
       console.log("readSeasonsInfo is", seasonsResponse.length);
@@ -150,67 +161,72 @@ export default {
           case 1:
             teamsResponse[
               index
-            ].img = require("../../assets/imgs/teams/kolkata-knight-riders.jpg");
+            ].img = kolkataKnightRiders;
             break;
           case 2:
             teamsResponse[
               index
-            ].img = require("../../assets/imgs/teams/rc-bangalore.jpg");
+            ].img = rcBangalore;
             break;
           case 3:
             teamsResponse[
               index
-            ].img = require("../../assets/imgs/teams/chennai-super-kings.jpg");
+            ].img = chennaiSuperKings;
             break;
           case 4:
             teamsResponse[
               index
-            ].img = require("../../assets/imgs/teams/kings-eleven-punjab.jpg");
+            ].img = kingsElevenPunjab;
             break;
           case 5:
             teamsResponse[
               index
-            ].img = require("../../assets/imgs/teams/rajasthan-royals.jpg");
+            ].img = rajasthanRoyals;
             break;
           case 6:
             teamsResponse[
               index
-            ].img = require("../../assets/imgs/teams/delhi-capitals.jpg");
+            ].img = delhiCapitals;
             break;
           case 7:
             teamsResponse[
               index
-            ].img = require("../../assets/imgs/teams/mumbai-indians.jpg");
+            ].img = mumbaiIndians;
             break;
           case 8:
             teamsResponse[
               index
-            ].img = require("../../assets/imgs/teams/deccan-chargers.jpg");
+            ].img = deccanChargers;
             break;
           case 9:
             teamsResponse[
               index
-            ].img = require("../../assets/imgs/teams/kochi-tuskers-kerala.jpg");
+            ].img = kochiTuskersKerala;
             break;
           case 10:
             teamsResponse[
               index
-            ].img = require("../../assets/imgs/teams/pune-warriors.jpg");
+            ].img = puneWarriors;
             break;
           case 11:
             teamsResponse[
               index
-            ].img = require("../../assets/imgs/teams/sunrise-hyderabad.jpg");
+            ].img = sunriseHyderabad;
             break;
           case 12:
             teamsResponse[
               index
-            ].img = require("../../assets/imgs/teams/rising-pune-superstar.jpg");
+            ].img = risingPuneSuperstar;
             break;
           case 13:
             teamsResponse[
               index
-            ].img = require("../../assets/imgs/teams/gujarat-lions.jpg");
+            ].img = gujaratLions;
+            break;
+          default:
+            teamsResponse[
+              index
+            ].img = gujaratLions;
             break;
         }
         this.teams.push(teamsResponse[index]);
